@@ -41,6 +41,7 @@ PKGS=(
         'networkmanager-openvpn'    # Open VPN plugin for NM
         'network-manager-applet'    # System tray icon/utility for network connectivity
         'libsecret'                 # Library for storing passwords
+        'dkms'                      # Dynamic kernel module rebuilder
     
     # --- Audio
         'alsa-utils'        # Advanced Linux Sound Architecture (ALSA) Components https://alsa.opensrc.org/
