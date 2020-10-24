@@ -13,7 +13,7 @@ PKGS=(
 
     # --- XORG Display Rendering
         'xorg'                  # Base Package
-        'xorg-drivers'          # Display Drivers 
+        'xorg-drivers'          # Display Drivers
         'xterm'                 # Terminal for TTY
         'xorg-server'           # XOrg server
         'xorg-apps'             # XOrg apps group
@@ -22,17 +22,12 @@ PKGS=(
         'mesa'                  # Open source version of OpenGL
 
     # --- Setup Desktop
-        'awesome'               # Awesome Desktop
-        'xfce4-power-manager'   # Power Manager 
-        'rofi'                  # Menu System
-        'picom'                 # Translucent Windows
-        'xclip'                 # System Clipboard
-        'gnome-polkit'          # Elevate Applications
-        'lxappearance'          # Set System Themes
+        'gnome'                 # Gnome Desktop
+        'plasma'                # Plasma Desktop
 
     # --- Login Display Manager
-        'lightdm'                   # Base Login Manager
-        'lightdm-webkit2-greeter'   # Framework for Awesome Login Themes
+        'sddm'                   # plasma Login Manager
+
 
     # --- Networking Setup
         'wpa_supplicant'            # Key negotiation for WPA wireless networks
@@ -42,7 +37,7 @@ PKGS=(
         'network-manager-applet'    # System tray icon/utility for network connectivity
         'libsecret'                 # Library for storing passwords
         'dkms'                      # Dynamic kernel module rebuilder
-    
+
     # --- Audio
         'alsa-utils'        # Advanced Linux Sound Architecture (ALSA) Components https://alsa.opensrc.org/
         'alsa-plugins'      # ALSA plugins
@@ -57,7 +52,7 @@ PKGS=(
         'bluez-firmware'        # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
         'blueberry'             # Bluetooth configuration tool
         'pulseaudio-bluetooth'  # Bluetooth support for PulseAudio
-    
+
     # --- Printers
         'cups'                  # Open source printer drivers
         'cups-pdf'              # PDF support for cups

@@ -13,8 +13,8 @@ PKGS=(
 
     # SYSTEM --------------------------------------------------------------
 
-    'linux-lts'             # Long term support kernel
-
+    'linux'             # Long term support kernel
+    'linux-firmware'     # firmware for devices
     # TERMINAL UTILITIES --------------------------------------------------
 
     'bash-completion'       # Tab completion for Bash
@@ -61,7 +61,7 @@ PKGS=(
     'parted'                # Disk utility
     'samba'                 # Samba File Sharing
     'smartmontools'         # Disk Monitoring
-    'smbclient'             # SMB Connection 
+    'smbclient'             # SMB Connection
     'xfsprogs'              # XFS Support
 
     # GENERAL UTILITIES ---------------------------------------------------
@@ -95,7 +95,7 @@ PKGS=(
     'kdenlive'              # Movie Render
     'obs-studio'            # Record your screen
     'celluloid'             # Video player
-    
+
     # GRAPHICS AND DESIGN -------------------------------------------------
 
     'gcolor2'               # Colorpicker
