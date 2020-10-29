@@ -69,7 +69,7 @@ echo "-- Arch Install on Main Drive       --"
 echo "--------------------------------------"
 pacstrap /mnt base base-devel linux linux-firmware vim nano sudo --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
+
 
 echo "--------------------------------------"
 echo "-- Bootloader Systemd Installation  --"
