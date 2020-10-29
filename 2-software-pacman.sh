@@ -13,23 +13,17 @@ PKGS=(
 
     # SYSTEM --------------------------------------------------------------
 
-    'linux-lts'             # Long term support kernel
-
+    'linux'             # Long term support kernel
+    'linux-firmware'     # firmware for devices
+    'nvidia'
     # TERMINAL UTILITIES --------------------------------------------------
 
     'bash-completion'       # Tab completion for Bash
-    'bleachbit'             # File deletion utility
-    'cronie'                # cron jobs
     'curl'                  # Remote content retrieval
-    'file-roller'           # Archive utility
-    'gtop'                  # System monitoring via terminal
-    'gufw'                  # Firewall manager
-    'hardinfo'              # Hardware info app
     'htop'                  # Process viewer
     'neofetch'              # Shows system info when you launch terminal
     'ntp'                   # Network Time Protocol to set time via network.
     'numlockx'              # Turns on numlock in X11
-    'openssh'               # SSH connectivity tools
     'p7zip'                 # 7z compression program
     'rsync'                 # Remote file sync utility
     'speedtest-cli'         # Internet speed via terminal
@@ -42,13 +36,8 @@ PKGS=(
     'vim'                   # Terminal Editor
     'zenity'                # Display graphical dialog boxes via shell scripts
     'zip'                   # Zip compression program
-    'zsh'                   # ZSH shell
-    'zsh-completions'       # Tab completion for ZSH
-
     # DISK UTILITIES ------------------------------------------------------
 
-    'android-tools'         # ADB for Android
-    'android-file-transfer' # Android File Transfer
     'autofs'                # Auto-mounter
     'btrfs-progs'           # BTRFS Support
     'dosfstools'            # DOS Support
@@ -59,21 +48,11 @@ PKGS=(
     'nautilus-share'        # File Sharing in Nautilus
     'ntfs-3g'               # Open source implementation of NTFS file system
     'parted'                # Disk utility
-    'samba'                 # Samba File Sharing
-    'smartmontools'         # Disk Monitoring
-    'smbclient'             # SMB Connection 
     'xfsprogs'              # XFS Support
 
     # GENERAL UTILITIES ---------------------------------------------------
 
-    'flameshot'             # Screenshots
-    'freerdp'               # RDP Connections
-    'libvncserver'          # VNC Connections
     'nautilus'              # Filesystem browser
-    'remmina'               # Remote Connection
-    'veracrypt'             # Disc encryption utility
-    'variety'               # Wallpaper changer
-
     # DEVELOPMENT ---------------------------------------------------------
 
     'gedit'                 # Text editor
@@ -94,13 +73,10 @@ PKGS=(
 
     'kdenlive'              # Movie Render
     'obs-studio'            # Record your screen
-    'celluloid'             # Video player
-    
+
     # GRAPHICS AND DESIGN -------------------------------------------------
 
-    'gcolor2'               # Colorpicker
     'gimp'                  # GNU Image Manipulation Program
-    'ristretto'             # Multi image viewer
 
     # PRODUCTIVITY --------------------------------------------------------
 
