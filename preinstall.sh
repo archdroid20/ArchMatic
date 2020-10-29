@@ -36,25 +36,30 @@ sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
 
 # create partitions
 sgdisk -n 1:0:+1000M ${DISK} # partition 1 (UEFI SYS), default start block, 512MB
-sgdisk -n 2:0:0     ${DISK} # partition 2 (Root), default start, remaining
+sgdisk -n 2:1001M:+16000M ${DISK} #Swap partition
+sgdisk -n 3:16001:0     ${DISK} # partition 2 (Root), default start, remaining
 
 # set partition types
 sgdisk -t 1:ef00 ${DISK}
-sgdisk -t 2:8300 ${DISK}
+sgdisk -t 2:8200 ${disk}
+sgdisk -t 3:8300 ${DISK}
 
 # label partitions
 sgdisk -c 1:"UEFISYS" ${DISK}
-sgdisk -c 2:"ROOT" ${DISK}
+sgdisk -c 2:"swap" ${DISK}
+sgdisk -c 3:"ROOT" ${DISK}
 
 # make filesystems
 echo -e "\nCreating Filesystems...\n$HR"
 
 mkfs.vfat -F32 -n "UEFISYS" "${DISK}1"
-mkfs.ext4 -L "ROOT" "${DISK}2"
+mkswap "swap" "${DISK}2"
+mkfs.ext4 -L "ROOT" "${DISK}3"
 
 # mount target
 mkdir /mnt
-mount -t ext4 "${DISK}2" /mnt
+mount -t ext4 "${DISK}3" /mnt
+swapon "swap" "${DISK}2"
 mkdir /mnt/boot
 mkdir /mnt/boot/efi
 mount -t vfat "${DISK}1" /mnt/boot/
