@@ -67,82 +67,9 @@ mount -t vfat "${DISK}1" /mnt/boot/
 echo "--------------------------------------"
 echo "-- Arch Install on Main Drive       --"
 echo "--------------------------------------"
-pacstrap /mnt base base-devel linux linux-firmware vim nano sudo --noconfirm --needed
+pacstrap /mnt base base-devel linux linux-firmware vim nano sudo git grub --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
+cp ArchMatic /mnt
 
 
-echo "--------------------------------------"
-echo "-- Bootloader Systemd Installation  --"
-echo "--------------------------------------"
-bootctl install
-cat <<EOF > /boot/loader/entries/arch.conf
-title Arch Linux
-linux /vmlinuz-linux
-initrd  /initramfs-linux.img
-options root=${DISK}1 rw
-EOF
 arch-chroot /mnt
-echo "--------------------------------------"
-echo "--          Network Setup           --"
-echo "--------------------------------------"
-pacman -S networkmanager dhclient --noconfirm --needed
-systemctl enable --now NetworkManager
-
-echo "--------------------------------------"
-echo "--      Set Password for Root       --"
-echo "--------------------------------------"
-echo "Enter password for root user: "
-passwd root
-echo "--------------------------------------"
-echo "--      Arch setup configuration     --"
-echo "--------------------------------------"
-if ! source install.conf; then
-	read -p "Please enter hostname:" hostname
-
-	read -p "Please enter username:" username
-
-	read -sp "Please enter password:" password
-
-	read -sp "Please repeat password:" password2
-
-	# Check both passwords match
-	if [ "$password" != "$password2" ]; then
-	    echo "Passwords do not match"
-	    exit 1
-	fi
-  printf "hostname="$hostname"\n" >> "install.conf"
-  printf "username="$username"\n" >> "install.conf"
-  printf "password="$password"\n" >> "install.conf"
-fi
-
-nc=$(grep -c ^processor /proc/cpuinfo)
-echo "You have " $nc" cores."
-echo "-------------------------------------------------"
-echo "Changing the makeflags for "$nc" cores."
-sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j$nc"/g' /etc/makepkg.conf
-echo "Changing the compression settings for "$nc" cores."
-sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g' /etc/makepkg.conf
-
-echo "-------------------------------------------------"
-echo "       Setup Language to US and set locale       "
-echo "-------------------------------------------------"
-sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
-locale-gen
-timedatectl --no-ask-password set-timezone America/Los_Angeles
-timedatectl --no-ask-password set-ntp 1
-localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_COLLATE="" LC_TIME="en_US.UTF-8"
-
-# Set keymaps
-localectl --no-ask-password set-keymap us
-
-# Hostname
-hostnamectl --no-ask-password set-hostname $hostname
-
-# Add sudo no password rights
-sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
-exit
-umount -R /mnt
-
-echo "--------------------------------------"
-echo "--   SYSTEM READY FOR FIRST BOOT    --"
-echo "--------------------------------------"
