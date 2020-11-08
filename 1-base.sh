@@ -24,6 +24,8 @@ PKGS=(
     # --- Setup Desktop
         'gnome'                 # Gnome Desktop
         'plasma'                # Plasma Desktop
+        'kde-application-meta'  # plasma applications
+        'openbox'               # Openbox is a lightweight window manager
 
     # --- Login Display Manager
         'sddm'                   # plasma Login Manager
