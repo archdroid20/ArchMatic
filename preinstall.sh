@@ -11,7 +11,7 @@ echo "-------------------------------------------------"
 echo "Setting up mirrors for optimal download - US Only"
 echo "-------------------------------------------------"
 timedatectl set-ntp true
-pacman -S --noconfirm pacman-contrib
+pacman -S --noconfirm pacman-contrib curl
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 curl -s "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > /etc/pacman.d/mirrorlist
 
@@ -46,28 +46,27 @@ sgdisk -t 3:8300 ${DISK}
 
 # label partitions
 sgdisk -c 1:"UEFISYS" ${DISK}
-sgdisk -c 2:"swap" ${DISK}
+sgdisk -c 2:"SWAP" ${DISK}
 sgdisk -c 3:"ROOT" ${DISK}
 
 # make filesystems
 echo -e "\nCreating Filesystems...\n$HR"
 
 mkfs.vfat -F32 -n "UEFISYS" "${DISK}1"
-mkswap "swap" "${DISK}2"
+mkswap "SWAP" "${DISK}2"
 mkfs.ext4 -L "ROOT" "${DISK}3"
 
 # mount target
 mkdir /mnt
 mount -t ext4 "${DISK}3" /mnt
-swapon "swap" "${DISK}2"
-mkdir /mnt/boot
-mkdir /mnt/boot/efi
+swapon "SWAP" "${DISK}2"
+mkdir /mnt/boot/
 mount -t vfat "${DISK}1" /mnt/boot/
 
 echo "--------------------------------------"
 echo "-- Arch Install on Main Drive       --"
 echo "--------------------------------------"
-pacstrap /mnt base base-devel linux linux-firmware vim nano sudo git grub --noconfirm --needed
+pacstrap /mnt base base-devel linux linux-firmware vim nano sudo git efibootmgr networkmanager wpa_supplicant wireless_tools netctl sudo dosfstools os-prober mtools bluez --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
 cp ArchMatic /mnt
 
