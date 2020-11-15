@@ -55,10 +55,10 @@ mkfs.ext4 -L "ROOT" "${DISK}3"
 
 # mount target
 mkdir /mnt
-mount -t ext4 "${DISK}3" /mnt
+mount ${DISK}3 /mnt
 swapon "SWAP" "${DISK}2"
 mkdir /mnt/boot/
-mount -t vfat "${DISK}1" /mnt/boot/
+mount ${DISK}1 /mnt/boot/
 
 echo "--------------------------------------"
 echo "-- Arch Install on Main Drive       --"
