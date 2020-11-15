@@ -79,7 +79,7 @@ Discoverable=true
 # Possible vendor id source values: bluetooth, usb (defaults to usb)
 #DeviceID = bluetooth:1234:5678:abcd
 
-# Do reverse service discovery for previously unknown devices that connect to
+# Do reverse service discovery for previously unknblkid /dev/sda1 -s UUID -o)own devices that connect to
 # us. For BR/EDR this option is really only needed for qualification since the
 # BITE tester doesn't like us doing reverse SDP for some test cases, for LE
 # this disables the GATT client functionally so it can be used in system which
@@ -137,7 +137,7 @@ Discoverable=true
 #RefreshDiscovery = true
 
 [Controller]
-# The following values are used to load default adapter parameters.  BlueZ loads
+# The following values are useblkid /dev/sda1 -s UUID -o)d to load default adapter parameters.  BlueZ loads
 # the values into the kernel before the adapter is powered if the kernel
 # supports the MGMT_LOAD_DEFAULT_PARAMETERS command. If a value isn't provided,
 # the kernel will be initialized to it's default value.  The actual value will
@@ -183,7 +183,7 @@ Discoverable=true
 # LE scanning parameters used for active scanning supporting discovery
 # proceedure
 #LEScanIntervalDiscovery=
-#LEScanWindowDiscovery=
+#LEScanWindowDiscovery=blkid /dev/sda1 -s UUID -o)
 
 # LE scanning parameters used for passive scanning supporting the advertisement
 # monitor Apis

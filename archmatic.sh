@@ -84,7 +84,7 @@ function baseSetup {
 
         # --- XORG Display Rendering
             'xorg'                  # Base Package
-            'xorg-drivers'          # Display Drivers 
+            'xorg-drivers'          # Display Drivers
             'xterm'                 # Terminal for TTY
             'xorg-server'           # XOrg server
             'xorg-apps'             # XOrg apps group
@@ -94,7 +94,7 @@ function baseSetup {
 
         # --- Setup Desktop
             'awesome'               # Awesome Desktop
-            'xfce4-power-manager'   # Power Manager 
+            'xfce4-power-manager'   # Power Manager
             'rofi'                  # Menu System
             'picom'                 # Translucent Windows
             'xclip'                 # System Clipboard
@@ -112,7 +112,7 @@ function baseSetup {
             'networkmanager-openvpn'    # Open VPN plugin for NM
             'network-manager-applet'    # System tray icon/utility for network connectivity
             'libsecret'                 # Library for storing passwords
-        
+
         # --- Audio
             'alsa-utils'        # Advanced Linux Sound Architecture (ALSA) Components https://alsa.opensrc.org/
             'alsa-plugins'      # ALSA plugins
@@ -127,7 +127,7 @@ function baseSetup {
             'bluez-firmware'        # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
             'blueberry'             # Bluetooth configuration tool
             'pulseaudio-bluetooth'  # Bluetooth support for PulseAudio
-        
+
         # --- Printers
             'cups'                  # Open source printer drivers
             'cups-pdf'              # PDF support for cups
@@ -195,7 +195,7 @@ function softwareSetup {
         'parted'                # Disk utility
         'samba'                 # Samba File Sharing
         'smartmontools'         # Disk Monitoring
-        'smbclient'             # SMB Connection 
+        'smbclient'             # SMB Connection
         'xfsprogs'              # XFS Support
 
         # GENERAL UTILITIES ---------------------------------------------------
@@ -229,7 +229,7 @@ function softwareSetup {
         'kdenlive'              # Movie Render
         'obs-studio'            # Record your screen
         'celluloid'             # Video player
-        
+
         # GRAPHICS AND DESIGN -------------------------------------------------
 
         'gcolor2'               # Colorpicker
@@ -251,7 +251,7 @@ function softwareSetup {
     'i3lock-fancy'              # Screen locker
     'synology-drive'            # Synology Drive
     'freeoffice'                # Office Alternative
-    
+
     # MEDIA ---------------------------------------------------------------
 
     'screenkey'                 # Screencast your keypresses
@@ -260,7 +260,7 @@ function softwareSetup {
     # COMMUNICATIONS ------------------------------------------------------
 
     'brave-nightly-bin'         # Brave
-    
+
 
     # THEMES --------------------------------------------------------------
 

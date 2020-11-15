@@ -22,7 +22,7 @@ PKGS=(
     'i3lock-fancy'              # Screen locker
     'synology-drive'            # Synology Drive
     'freeoffice'                # Office Alternative
-    
+
     # MEDIA ---------------------------------------------------------------
 
     'screenkey'                 # Screencast your keypresses
@@ -31,7 +31,7 @@ PKGS=(
     # COMMUNICATIONS ------------------------------------------------------
 
     'brave-nightly-bin'         # Brave
-    
+
 
     # THEMES --------------------------------------------------------------
 
